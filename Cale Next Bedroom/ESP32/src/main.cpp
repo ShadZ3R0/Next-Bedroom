@@ -1,18 +1,14 @@
 #include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
+#include "Batterie.hpp"
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  pinMode(A0, INPUT);
+  pinMode(D0, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  Batterie bat(A0, D0);
+  Serial.println(bat.getPourcentage());
+  delay(100);
 }
