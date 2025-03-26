@@ -10,13 +10,13 @@ Batterie::Batterie(int brocheTension, int brocheLed){
 
 float Batterie::getTension(){
 
-    return(analogRead(Batterie::brocheTension));
+    return(3.3 - (analogRead(Batterie::brocheTension) * 3.3 / 4095));
 
 }
 
 float Batterie::getPourcentage(){
 
-    Batterie::pourcentage = getTension() * 100 / 4095;
+    Batterie::pourcentage = getTension() * 100 / 3.3;
     if(Batterie::pourcentage < 20){
         digitalWrite(Batterie::brocheLed, HIGH);
     }
