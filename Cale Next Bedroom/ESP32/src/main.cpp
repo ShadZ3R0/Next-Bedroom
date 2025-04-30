@@ -14,10 +14,10 @@ void setup() {
   Serial.println("");
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
+  delay(1000);
+  BDD batBDD("test", "http://172.30.50.15/datas.php");
+  batBDD.requeteBDD("test");
 }
 
 void loop() {
-  delay(100);
-  BDD batBDD("test", "172.30.50.11");
-  batBDD.requeteBDD("Test connexion");
 }

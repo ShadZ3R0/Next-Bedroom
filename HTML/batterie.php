@@ -19,6 +19,7 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Erreur de connexion à la base de données: " . $conn->connect_error);
 }
+
 // Requête SQL pour réccupérer les cales
 $sql = "SELECT idCale, nomProprio, batterie FROM cales";
 $result = $conn->query($sql);

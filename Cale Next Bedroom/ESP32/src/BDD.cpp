@@ -27,7 +27,7 @@ BDD::BDD(String nBDD, String adresseIP){
     }
     fichier.close();
     BDD::nomBDD = nBDD;
-    BDD::ip = "https://" + adresseIP + "/datas.php";
+    BDD::ip = adresseIP;
 
 }
 
@@ -35,7 +35,7 @@ String BDD::requeteBDD(String sql){
 
     if(WiFi.status() == WL_CONNECTED){
         BDD::https.begin(BDD::ip);
-        BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        //BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
         BDD::reponse = BDD::https.POST(sql);
         Serial.print("Réponse HTTP : ");
         Serial.println(BDD::reponse);
@@ -51,7 +51,7 @@ String BDD::batterieBDD(float tension, float pourcentage){
 
     if(WiFi.status() == WL_CONNECTED){
         BDD::https.begin(BDD::ip);
-        BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        //BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
         BDD::reponse = BDD::https.POST("tension=" + String(tension) + "pourcentage=" + String(pourcentage));
         Serial.print("Réponse HTTP : ");
         Serial.println(BDD::reponse);

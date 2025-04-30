@@ -4,7 +4,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <Wire.h>
-
+/*
 // Définir les pins pour le module RFID
 #define SS_PIN 21  // Pin SDA (Slave Select)
 #define RST_PIN 22 // Pin de Reset
@@ -43,3 +43,4 @@ void loop() {
     }
   }
 }
+*/
