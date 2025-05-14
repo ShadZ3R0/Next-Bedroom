@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 }
 
 // Requête SQL pour réccupérer les cales
-$sql = "SELECT idCale, nomProprio, batterie FROM cales";
+$sql = "SELECT idCale, idEmployee, batterie FROM cale";
 $result = $conn->query($sql);
 
 ?>
@@ -75,7 +75,7 @@ $result = $conn->query($sql);
             <?php while($row = $result->fetch_assoc()) { ?>
                 <tr>
                     <td><?php echo $row['idCale']; ?></td>
-                    <td><?php echo $row['nomProprio']; ?></td>
+                    <td><?php echo $row['idEmployee']; ?></td>
                     <td><?php echo $row['batterie']; ?></td>
                 </tr>
             <?php } ?>

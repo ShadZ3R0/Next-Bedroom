@@ -11,8 +11,6 @@ class BDD{
         String batterieBDD(float pourcentage);
 
     private:
-        String identifiant;
-        String motDePasse;
         String nomBDD;
         String ip;
         HTTPClient https;
