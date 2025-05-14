@@ -8,7 +8,7 @@ class BDD{
     public:
         BDD(String nBDD, String adresseIP);
         String requeteBDD(String sql);
-        String batterieBDD(float tension, float pourcentage);
+        String batterieBDD(float pourcentage);
 
     private:
         String identifiant;

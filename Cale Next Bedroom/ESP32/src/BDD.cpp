@@ -35,7 +35,6 @@ String BDD::requeteBDD(String sql){
 
     if(WiFi.status() == WL_CONNECTED){
         BDD::https.begin(BDD::ip);
-        //BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
         BDD::reponse = BDD::https.POST(sql);
         Serial.print("Réponse HTTP : ");
         Serial.println(BDD::reponse);
@@ -47,12 +46,11 @@ String BDD::requeteBDD(String sql){
 
 }
 
-String BDD::batterieBDD(float tension, float pourcentage){
+String BDD::batterieBDD(float pourcentage){
 
     if(WiFi.status() == WL_CONNECTED){
         BDD::https.begin(BDD::ip);
-        //BDD::https.addHeader("Content-Type", "application/x-www-form-urlencoded");
-        BDD::reponse = BDD::https.POST("tension=" + String(tension) + "pourcentage=" + String(pourcentage));
+        BDD::reponse = BDD::https.POST("UPDATE cale SET batterie = " + String(pourcentage) + " WHERE employee = 1;");
         Serial.print("Réponse HTTP : ");
         Serial.println(BDD::reponse);
         return(BDD::reponse);
